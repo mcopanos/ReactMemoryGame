@@ -5,9 +5,16 @@ import Board from './components/styled/board.styled.jsx'
 import List from './components/styled/list.styled.jsx'
 import Card from './components/styled/card.styled.jsx'
 import Item from './components/styled/item.styled.jsx'
+import { useId } from 'react'
+import { useState } from 'react'
 
 function App() {
   const emojis = ['😍', '😍', '🥵', '🥵', '🥸', '🥸', '💩', '💩', '🥳','🥳', '🤑', '🤑'];
+  randomEmojis(emojis)
+  function randomEmojis(arr) {
+    arr.sort(() => Math.random() - 0.5)
+  }
+
 
   return (
     <>
@@ -19,7 +26,7 @@ function App() {
           <List>
             {
               emojis.map(emoji => (
-                <Item>
+                <Item key={useId()}>
                   <Card>
                     <text style={{fontSize: '4em'}}>{emoji}</text>
                   </Card>
