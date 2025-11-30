@@ -12,56 +12,60 @@ import Emojis from './components/data/emojis.json'
 function App() {
   const [emojis, setEmojis] = useState([...Emojis])
   const [isClicked, setIsClicked] = useState([])
+  const [clicks, setClicks] = useState(0)
 
-  function sortCards(arr) {
-    arr.sort(() => Math.random() - 0.5);
-  };
   
-  function toggleIsClicked(id) {
-    setEmojis((prevEmoji) =>
-      prevEmoji.map((emoji) =>
-        emoji === id ? { ...emoji, isClicked: true } : emoji
-      )
-    );
+function toggleIsClicked(id) {
+  setEmojis((prevEmoji) =>
+    prevEmoji.map((emoji) =>
+      emoji === id ? { ...emoji, isClicked: true } : emoji)
+  );
 
-  };
+  setClicks(clicks + 1);
+};
+
+if (isClicked.length === 2) {
+  const first = isClicked[0];
+  const second = isClicked[1];
   
-  if (isClicked.length === 2) {
-    const first = isClicked[0];
-    const second = isClicked[1];
+  if (first.emoji === second.emoji) {
+    // left off here. tyring to set is matched to tru
+    emojis.map((emoji) => 
+      emoji.isClicked === true ? emoji.isMatched = true : emoji);
+    
+    emojis.map((emoji) => 
+      emoji.isMatched === true ? emoji.isClicked = false : emoji);
+    
+    setIsClicked([]);
+  } else {
+    // alert("Not a Match. Try again")
+    
+    emojis.map((emoji) => 
+      emoji.isClicked === true ? emoji.isClicked = false : emoji);
+    
+    setIsClicked([]);
+  }
+} 
 
-    if (first.emoji === second.emoji) {
-      // left off here. tyring to set is matched to tru
-      emojis.map((emoji) => 
-        emoji.isClicked === true ? emoji.isMatched = true : emoji);
-      
-      emojis.map((emoji) => 
-        emoji.isMatched === true ? emoji.isClicked = false : emoji);
-      
-      setIsClicked([]);
-    } else {
-      alert("Not a Match. Try again")
-      
-      emojis.map((emoji) => 
-        emoji.isClicked === true ? emoji.isClicked = false : emoji);
-
-      setIsClicked([]);
-    }
-  } 
-
-  useEffect(() => {
-    setIsClicked(emojis.filter((emoji) => emoji.isClicked))
-
-  }, [emojis])
+useEffect(() => {
+  setIsClicked(emojis.filter((emoji) => emoji.isClicked))
   
-  useMemo(() => {
-    return sortCards(emojis) 
-  }, []);
+}, [emojis])
+
+function sortCards(arr) {
+  arr.sort(() => Math.random() - 0.5);
+};
+
+useMemo(() => {
+  return sortCards(emojis) 
+}, []);
 
   return (
     <>
       <Banner>
-        <Title>Emoji Memeory Game</Title>
+        <Title>Emoji Memeory Game
+        <p>Clicks:{clicks}</p>
+        </Title>
       </Banner>
       <Section>
         <Board>
