@@ -6,3 +6,7 @@
 .hidden {
   display: none;
 }
+
+.neutral {
+  background-color: #b5adb1;
+}
