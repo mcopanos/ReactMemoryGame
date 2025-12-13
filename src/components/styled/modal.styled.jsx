@@ -2,9 +2,9 @@ import styled from "styled-components";
 import Board from "./board.styled";
 
 const Modal = styled.div`
+    display: flex;
     position: fixed; 
     z-index: 1; 
-    padding-top: 100px; 
     left: 0;
     top: 0;
     width: 100%; 

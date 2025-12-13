@@ -8,6 +8,8 @@ import Card from './components/styled/card.styled.jsx'
 import MatchedCard from './components/styled/matchedCard.styled.jsx'
 import Item from './components/styled/item.styled.jsx'
 import Modal from './components/styled/modal.styled.jsx'
+import ModalContent from './components/styled/modalContent.styled.jsx'
+import Button from './components/styled/button.styled.jsx'
 import Emojis from './components/data/emojis.json'
 
 function App() {
@@ -17,11 +19,19 @@ function App() {
   const [isDisabled, setIsDisabled] = useState(false)
 
   function toggleIsClicked(id) {
-    setEmojis((prevEmoji) =>
-      prevEmoji.map((emoji) =>
-        emoji === id ? { ...emoji, isClicked: true } : emoji)
-    );
+    if(!id.isClicked) {
+      setEmojis((prevEmoji) =>
+        prevEmoji.map((emoji) =>
+          emoji === id ? { ...emoji, isClicked: true } : emoji)
+      );
+    } else {
+      console.log('this has been clicked')
+    };  
   };
+
+  function restartGame() {
+    window.location.reload(true);
+  }
 
   if (isClicked.length === 2) {
     const first = isClicked[0];
@@ -37,9 +47,8 @@ function App() {
       const matches = emojis.filter(emoji => emoji.isMatched === true)
       if (matches.length === 12) {
         setTimeout(() => {
-          
-        },500)
-        window.location.reload(true);
+          setgameover(!gameover);
+        },500);
       }
       clearClickedCards();
       
@@ -126,7 +135,18 @@ function App() {
             }
           </List>
         </Board>
-        {gameover && <Modal>You have won the game</Modal> }
+        { gameover && 
+        <Modal>
+          <ModalContent>
+            <h2>
+              Congradulations!! You have won the game!
+            </h2>
+            <Button onClick={restartGame}>
+              Restart
+            </Button>
+          </ModalContent>
+        </Modal> 
+        }
       </Section>
     </>
   );
