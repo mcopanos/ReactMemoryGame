@@ -1,16 +1,16 @@
-# React + Vite
+# Emoji Matching Game with React 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a desktop app, memory game style. With 12 cards players will select the cards and try and match the emojis. When player has matched all cards you will be prompted to restart if desired. 
 
-Currently, two official plugins are available:
+## React Styled Components 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
+This game is built using React Styled Styled Components library. Fun and simple. Easy way to style and reuse components.
+Check it out [Styled Components](https://styled-components.com/).
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Try it out
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+You can clone this to your computer and run NPM install to play or
+[Click Here](https://matchgameemojis.netlify.app/) to play. I have is hosted on Netlfy. 
+
