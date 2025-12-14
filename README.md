@@ -4,7 +4,7 @@ This is a desktop app, memory game style. With 12 cards players will select the 
 
 ## React Styled Components 
 
-This game is built using React Styled Styled Components library. Fun and simple. Easy way to style and reuse components.
+This game was built using React Styled Styled Components library. Fun and simple. Easy way to style and reuse components.
 Check it out [Styled Components](https://styled-components.com/).
 
 ## Try it out
